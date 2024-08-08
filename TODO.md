@@ -1,0 +1,27 @@
+### Planned stuff
+
+- [ ] Features
+    - [ ] Basic commands:
+      - `graft init`
+      - `graft help`
+    - [ ] Abstractions
+      - [ ] Test command `p.Test()`
+      - [ ] .env variable setter `p.Env(file string)`
+      - [ ] go mod download/tidy `p.Module` 
+      - [ ] go update dependencies `p.ManageDependencies`
+      - [ ] Docker command `p.DockerCompose()`
+    - [ ] Hot reloading option
+      - [ ] Default config
+      - [ ] `WatchDir`
+      - [ ] `Ignore`
+      - [ ] `Command`
+    - [ ] Run linters abstraction
+    - [ ] Benchmark script/functions
+    - [ ] Deploy functions
+- [ ] Testing
+    - [ ] Unit tests for each `/pkg` function
+    - [ ] Integration tests for `/internal` functions
+- [ ] Documentation
+    - [ ] `pkg.go` example functions for all of `/pkg`
+    - [ ] Basic `README.md` examples
+    - [ ] Website examples
