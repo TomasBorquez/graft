@@ -5,10 +5,11 @@
       - `graft init`
       - `graft help`
     - [ ] Abstractions
+      - [ ] Run formater `p.Format()`
       - [ ] Test command `p.Test()`
-      - [ ] .env variable setter `p.Env(file string)`
-      - [ ] go mod download/tidy `p.Module` 
-      - [ ] go update dependencies `p.ManageDependencies`
+      - [ ] .env variable setter `p.Env()`
+      - [ ] go mod download/tidy `p.Module()` 
+      - [ ] go update dependencies `p.ManageDependencies()`
       - [ ] Docker command `p.DockerCompose()`
     - [ ] Hot reloading option
       - [ ] Default config

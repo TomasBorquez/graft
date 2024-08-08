@@ -12,9 +12,9 @@ func main() {
 		printHelp()
 		return
 	}
-	
+
 	action := args[0]
-	
+
 	switch action {
 	case "help":
 		printHelp()
@@ -26,16 +26,16 @@ func main() {
 		logger.Error("[Graft]: Command %s does not exist, run `graft help` to see the list of commands", action)
 		return
 	}
-	
+
 	file, err := runner.FindGraftFile()
 	if err != nil {
 		logger.Error(`[Graft]: Failed to find "graft.go" in root directory: %v`, err)
 		return
 	}
-	
+
 	logger.Success(`[Graft]: Found "graft.go", compiling and executing...`)
 	err = runner.CompileAndExecuteGraft(file, action)
-	
+
 	if err != nil {
 		logger.Error(`[Graft]: Error meanwhile compiling "graft.go" %v`, err)
 		return

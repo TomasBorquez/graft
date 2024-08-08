@@ -1,14 +1,22 @@
 <div align="center">
 	<img alt="Graft logo" src="/images/logo.svg" height="300" /><br />
+    <a href="https://pkg.go.dev/github.com/TomasBorquez/graft">
+      <img src="https://img.shields.io/badge/%F0%9F%93%9A%20godoc-pkg-00ACD7.svg?color=00ACD7&style=flat-square">
+    </a>
+    <a href="https://goreportcard.com/report/github.com/TomasBorquez/graft">
+      <img src="https://goreportcard.com/badge/github.com/TomasBorquez/graft">
+    </a>
 </div>
 
 <hr>
 
 <div align="center">
-  <b>Graft</b> is a powerful Go library designed to streamline and enhance the development workflow for Go projects. It
-  provides a set of tools and utilities to simplify common tasks, automate build processes, and improve overall
-  productivity.
+  <b>Graft</b> is a Go build library in Go for building Go projects :) it
+  provides a set of tools and utilities to simplify common build tasks, 
+  automate build processes, hot reloading and more.
 </div>
+
+<hr>
 
 ### Features
 
@@ -25,11 +33,13 @@
 ### Installation
 
 To install the command line tool use:
+
 ```shell
 go install github.com/TomasBorquez/graft
 ```
 
 To add graft to your project just use:
+
 ```shell
 go get github.com/TomasBorquez/graft
 ```
@@ -37,34 +47,43 @@ go get github.com/TomasBorquez/graft
 ### Quick Start
 
 1. Use `graft init` to or create the `graft.go` file manually in the **root directory**:
+
   ```go
   //go:build graft
-  // +build graft
+// +build graft
 
-  package main
+package main
 
-  import (
-    "github.com/TomasBorquez/graft/pkg"
-  )
+import (
+	"github.com/TomasBorquez/graft/pkg"
+)
 
-  func main() {
-    graft.Config("build", func(p *graft.Project) {
-      p.Build(graft.BuildOptions{
-        OutputPath: "bin/myapp",
-        SourcePath: "cmd/myapp/main.go",
-      })
-    })
-  }
+func main() {
+	graft.Config("build", func(p *graft.Project) {
+		p.Build(graft.BuildOptions{
+			OutputPath: "bin/myapp",
+			SourcePath: "cmd/myapp/main.go",
+		})
+	})
+}
   ```
+
 2. Run `graft build` and that's it!
 
-No `.sh` nor `.bat` files no `make` files, just some simple go code that makes your build compatible with multiple operating systems out of the box.
+No `.sh` nor `.bat` files no `make` files, just some simple go code that makes your build compatible with multiple
+operating systems out of the box.
 
-### Documentation
-[TODO](TODO.md)
+### Why?
+
+As a zig lover, when I got into go I wondered why isn't there a tool for building your go project in **go itself**,
+you look at any complex go project, and it's full of `.sh` files `make` files (and `.bat` files if they thought about the Windows users).
+It didn't really feel right, this is why I created **graft** so I can start a project, add some simple script **in go** and focus on programming
+and not in setting my build process.
 
 ### Contributing
+
 [TODO](TODO.md)
 
 ### License
+
 Graft is released under the MIT License. See the [LICENSE](LICENSE) file for more details.

@@ -14,7 +14,7 @@ func main() {
 			SourcePath: "cmd/graft/main.go",
 		})
 	})
-	
+
 	graft.Config("start", func(p *graft.Project) {
 		p.Run("templ", "generate")
 	})

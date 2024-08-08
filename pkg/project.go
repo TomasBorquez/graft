@@ -20,7 +20,7 @@ func Config(name string, cb Callback) {
 		logger.Error("[Graft]: Use `graft action` to execute this file")
 		return
 	}
-	
+
 	action := os.Args[1]
 	if name == action {
 		cb(&Project{name: action})
@@ -37,14 +37,14 @@ func (p *Project) Run(command string, args ...string) {
 		logger.Error("No command provided on `g.Run(command, args)`")
 		return
 	}
-	
+
 	cmd := exec.Command(command, args...)
 	output, err := cmd.CombinedOutput()
-	
+
 	if err != nil {
 		return
 	}
-	
+
 	fmt.Println(string(output))
 }
 
@@ -61,25 +61,24 @@ func (p *Project) Build(opts BuildOptions) {
 	if opts.OutputPath == "" {
 		opts.OutputPath = p.name
 	}
-	
+
 	if runtime.GOOS == "windows" && !strings.HasSuffix(opts.OutputPath, ".exe") {
 		opts.OutputPath += ".exe"
 	}
-	
+
 	args := []string{"build", "-o", opts.OutputPath}
-	
+
 	if len(opts.Tags) > 0 {
 		args = append(args, "-tags", strings.Join(opts.Tags, ","))
 	}
-	
+
 	if len(opts.LDFlags) > 0 {
 		args = append(args, "-ldflags", strings.Join(opts.LDFlags, " "))
 	}
-	
+
 	if opts.SourcePath != "" {
 		args = append(args, opts.SourcePath)
 	}
-	
+
 	p.Run("go", args...)
 }
-
