@@ -18,6 +18,7 @@
     - [ ] Run linters abstraction
     - [ ] Benchmark script/functions
     - [ ] Deploy functions
+    - [ ] Functioning `go get graft`
 - [ ] Testing
     - [ ] Unit tests for each `/pkg` function
     - [ ] Integration tests for `/internal` functions
