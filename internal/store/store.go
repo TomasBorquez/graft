@@ -1,4 +1,4 @@
-package graft
+package store
 
 import (
 	"github.com/TomasBorquez/logger"
@@ -16,7 +16,7 @@ func PushHandlers(name string, cb handlerCb) {
 func ExecuteHandlers(name string) {
 	currHandler := handlers[name]
 	if currHandler == nil {
-		logger.Error("[Graft]: You still haven't set up your %s script", name)
+		logger.Error(`[Graft]: You still haven't set up your "%s" script, check our documentation for help.`, name)
 		logger.Warning("[Graft]: Stopping execution...")
 		os.Exit(0)
 	}

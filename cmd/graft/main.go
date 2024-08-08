@@ -8,18 +8,27 @@ import (
 
 func main() {
 	args := os.Args[1:]
+	if len(args) == 0 {
+		printHelp()
+		return
+	}
+	
 	action := args[0]
 	
 	switch action {
 	case "start":
-		graft.ExecuteHandlers("start")
+		store.ExecuteHandlers("start")
 	case "build":
-		graft.ExecuteHandlers("build")
+		store.ExecuteHandlers("build")
 	case "test":
-		graft.ExecuteHandlers("test")
+		store.ExecuteHandlers("test")
 	case "help":
-		logger.Warning("TODO")
+		printHelp()
 	default:
 		logger.Error("Command %s does not exist, run `graft help` to see the list of commands", action)
 	}
+}
+
+func printHelp() {
+	logger.Warning("TODO")
 }

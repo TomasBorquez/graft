@@ -1,4 +1,4 @@
-package graft
+package project
 
 import (
 	"errors"
@@ -13,7 +13,7 @@ type Project struct {
 }
 
 func (p *Project) Run(name string, args ...string) {
-	graft.PushHandlers(name, func() error {
+	store.PushHandlers(name, func() error {
 		if len(args) == 0 {
 			logger.Error("Error: No command provided")
 			return errors.New("no command provided")
