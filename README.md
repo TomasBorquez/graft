@@ -83,6 +83,8 @@ func main() {
 No `.sh` nor `.bat` files no `make` files, just some simple go code that makes your build compatible with multiple
 operating systems out of the box.
 
+<hr>
+
 ### 🤔 Why?
 
 As a [zig](https://ziglang.org/) lover, when I got into Go I wondered why isn't there a native tool for building your Go
@@ -90,9 +92,13 @@ project in **Go itself** such as [zig build](https://ziglang.org/learn/build-sys
 and it's full of `.sh` or `make` files (and `.bat` files if they thought about the Windows users). It didn't really feel right, 
 this is why I created **graft**, so I can start a project, add some simple script **in go** and focus on programming and not in setting my build process.
 
+<hr>
+
 ### ⛪ Contributing
 
 [TODO](TODO.md)
+
+<hr>
 
 ### License
 
