@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/TomasBorquez/graft/internal/runner"
+	"github.com/TomasBorquez/graft/internal/scripts"
 	"github.com/TomasBorquez/logger"
 	"os"
 )
@@ -9,7 +10,7 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) == 0 {
-		printHelp()
+		scripts.PrintHelp()
 		return
 	}
 
@@ -17,11 +18,16 @@ func main() {
 
 	switch action {
 	case "help":
-		printHelp()
+		scripts.PrintHelp()
+		return
+	case "init":
+		scripts.InitGraft()
 		return
 	case "start":
 	case "build":
 	case "test":
+	case "format":
+	case "lint":
 	default:
 		logger.Error("[Graft]: Command %s does not exist, run `graft help` to see the list of commands", action)
 		return
@@ -40,8 +46,4 @@ func main() {
 		logger.Error(`[Graft]: Error meanwhile compiling "graft.go" %v`, err)
 		return
 	}
-}
-
-func printHelp() {
-	logger.Warning("TODO")
 }

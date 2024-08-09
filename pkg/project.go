@@ -3,6 +3,7 @@ package graft
 import (
 	"fmt"
 	"github.com/TomasBorquez/logger"
+	"log"
 	"os"
 	"os/exec"
 	"runtime"
@@ -11,6 +12,7 @@ import (
 
 type Project struct {
 	name string
+	Path string
 }
 
 type Callback = func(p *Project)
@@ -22,8 +24,14 @@ func Config(name string, cb Callback) {
 	}
 
 	action := os.Args[1]
+	path, err := os.Getwd()
+	if err != nil {
+		logger.Error("[Graft]: Error meanwhile getting working directory: %v", err)
+		return
+	}
+
 	if name == action {
-		cb(&Project{name: action})
+		cb(&Project{name: action, Path: path})
 		if name == "build" {
 			logger.Success("[Graft]: Successfully built project")
 		}
@@ -38,10 +46,14 @@ func (p *Project) Run(command string, args ...string) {
 		return
 	}
 
+	fmt.Printf("[Graft]: Running command `%s %v`\n", command, args)
 	cmd := exec.Command(command, args...)
-	output, err := cmd.CombinedOutput()
+	cmd.Dir = p.Path
 
+	output, err := cmd.CombinedOutput()
 	if err != nil {
+		log.Printf("%v", err)
+		os.Exit(1)
 		return
 	}
 
@@ -81,4 +93,57 @@ func (p *Project) Build(opts BuildOptions) {
 	}
 
 	p.Run("go", args...)
+}
+
+// FormatOptions contains the configuration for formatting options
+type FormatOptions struct {
+	File       string // Specific file to format, empty means format all
+	Simplified bool   // Whether to use simplified formatting (-s flag)
+	Write      bool   // Whether to write changes to file(s) (-w flag)
+	List       bool   // Whether to list files that would be formatted (-l flag)
+}
+
+// Format applies Go formatting to the project files based on the given options
+func (p *Project) Format(opts FormatOptions) {
+	var args []string
+
+	cmd := "gofmt"
+	if opts.Simplified {
+		args = append(args, "-s")
+	}
+
+	if opts.Write {
+		args = append(args, "-w")
+	}
+
+	if opts.List {
+		args = append(args, "-l")
+	}
+
+	if opts.File != "" {
+		args = append(args, opts.File)
+	} else {
+		args = append(args, "./..")
+	}
+
+	p.Run(cmd, args...)
+	return
+}
+
+// FormatAll formats all Go files in the project with simplified formatting
+func (p Project) FormatAll() {
+	p.Format(FormatOptions{
+		Simplified: true,
+		Write:      true,
+	})
+	return
+}
+
+// ListUnformatted lists all Go files in the project that need formatting
+func (p Project) ListUnformatted() {
+	p.Format(FormatOptions{
+		Simplified: true,
+		List:       true,
+	})
+	return
 }

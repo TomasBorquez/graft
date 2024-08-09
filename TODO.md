@@ -2,20 +2,20 @@
 
 - [ ] Features
     - [ ] Basic commands:
-      - `graft init`
-      - `graft help`
+        - [x] `graft init`
+        - [ ] `graft help`
     - [ ] Abstractions
-      - [ ] Run formater `p.Format()`
-      - [ ] Test command `p.Test()`
-      - [ ] .env variable setter `p.Env()`
-      - [ ] go mod download/tidy `p.Module()` 
-      - [ ] go update dependencies `p.ManageDependencies()`
-      - [ ] Docker command `p.DockerCompose()`
+        - [x] Run formater `p.Format()`
+        - [ ] Test command `p.Test()`
+        - [ ] .env variable setter `p.Env()`
+        - [ ] go mod download/tidy `p.Module()`
+        - [ ] go update dependencies `p.ManageDependencies()`
+        - [ ] Docker command `p.DockerCompose()`
     - [ ] Hot reloading option
-      - [ ] Default config
-      - [ ] `WatchDir`
-      - [ ] `Ignore`
-      - [ ] `Command`
+        - [ ] Default config
+        - [ ] `WatchDir`
+        - [ ] `Ignore`
+        - [ ] `Command`
     - [ ] Run linters abstraction
     - [ ] Benchmark script/functions
     - [ ] Deploy functions

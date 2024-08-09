@@ -15,7 +15,7 @@ func main() {
 		})
 	})
 
-	graft.Config("start", func(p *graft.Project) {
-		p.Run("templ", "generate")
+	graft.Config("format", func(p *graft.Project) {
+		p.FormatAll()
 	})
 }

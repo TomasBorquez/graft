@@ -48,25 +48,25 @@ go get github.com/TomasBorquez/graft
 
 1. Use `graft init` to or create the `graft.go` file manually in the **root directory**:
 
-  ```go
-  //go:build graft
+```go
+//go:build graft
 // +build graft
 
 package main
 
 import (
-	"github.com/TomasBorquez/graft/pkg"
+  "github.com/TomasBorquez/graft/pkg"
 )
 
 func main() {
-	graft.Config("build", func(p *graft.Project) {
-		p.Build(graft.BuildOptions{
-			OutputPath: "bin/myapp",
-			SourcePath: "cmd/myapp/main.go",
-		})
-	})
+  graft.Config("build", func(p *graft.Project) {
+    p.Build(graft.BuildOptions{
+        OutputPath: "bin/myapp",
+        SourcePath: "cmd/myapp/main.go",
+    })
+  })
 }
-  ```
+```
 
 2. Run `graft build` and that's it!
 
@@ -75,10 +75,10 @@ operating systems out of the box.
 
 ### Why?
 
-As a zig lover, when I got into go I wondered why isn't there a tool for building your go project in **go itself**,
-you look at any complex go project, and it's full of `.sh` files `make` files (and `.bat` files if they thought about the Windows users).
-It didn't really feel right, this is why I created **graft** so I can start a project, add some simple script **in go** and focus on programming
-and not in setting my build process.
+As a [zig](https://ziglang.org/) lover, when I got into Go I wondered why isn't there a native tool for building your Go
+project in **Go itself** such as [zig build](https://ziglang.org/learn/build-system/), you look at any complex go project,
+and it's full of `.sh` or `make` files (and `.bat` files if they thought about the Windows users). It didn't really feel right, 
+this is why I created **graft**, so I can start a project, add some simple script **in go** and focus on programming and not in setting my build process.
 
 ### Contributing
 
