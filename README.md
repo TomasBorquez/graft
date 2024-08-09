@@ -100,7 +100,7 @@ this is why I created **graft**, so I can start a project, add some simple scrip
 
 ### ⛪ Contributing
 
-[TODO](TODO.md)
+[TODO](./documentation/TODOS.md)
 
 <hr>
 
