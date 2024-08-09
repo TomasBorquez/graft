@@ -30,6 +30,8 @@
   changelogs.
 - **Custom Task Support**: Define and run custom tasks tailored to your project's needs.
 
+<hr>
+
 ### ⚙ Installation
 
 To install the command line tool use:
@@ -43,6 +45,8 @@ To add graft to your project just use:
 ```shell
 go get github.com/TomasBorquez/graft
 ```
+
+<hr>
 
 ### ⚡ Quick Start
 
