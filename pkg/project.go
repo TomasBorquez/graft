@@ -13,26 +13,26 @@ func ExecuteTasks(cb func(t *TaskExecutor)) {
 		logger.Error("[Graft]: Use `graft action` to execute this file")
 		return
 	}
-
+	
 	store.action = os.Args[1]
-
+	
 	path, err := os.Getwd()
 	if err != nil {
 		logger.Error("[Graft]: Error meanwhile getting working directory: %v", err)
 		return
 	}
-
+	
 	store.path = path
-
+	
 	cb(&TaskExecutor{})
-
+	
 	if !store.executedAction {
 		if store.action == "format" {
 			logger.Warning("[Graft]: No format task found, executing default formatter...")
 			internal.Cmd("gofmt", "-s", "-w", "./..")
 			return
 		}
-
+		
 		logger.Error("[Graft]: No script found for `graft %s`", store.action)
 		return
 	}
@@ -41,13 +41,11 @@ func ExecuteTasks(cb func(t *TaskExecutor)) {
 type TaskConfig struct{}
 type TaskCb = func(p *TaskConfig)
 
-var taskConfig = &TaskConfig{}
-
 func (t *TaskExecutor) DefineTask(name string, cb TaskCb) {
 	if name == store.action {
 		store.executedAction = true
-		cb(taskConfig)
-
+		cb(&TaskConfig{})
+		
 		if name == "build" {
 			logger.Success("[Graft]: Successfully built project")
 		}
@@ -56,18 +54,18 @@ func (t *TaskExecutor) DefineTask(name string, cb TaskCb) {
 
 type HRConfig struct {
 	Action       string
-	HotReloading bool
+	IncludeDir   []string
 	ExcludeDir   []string
 	IncludeExten []string
-	Delay        int
+	ExcludeExten []string
 }
 
 func (t *TaskExecutor) DefineHotReloadTask(opts HRConfig, cb TaskCb) {
 	if opts.Action == store.action {
 		store.executedAction = true
-		// TODO Check if hot reloading is enabled
-		cb(taskConfig)
-
+		
+		AddWatcher(&opts, cb)
+		
 		if opts.Action == "build" {
 			logger.Success("[Graft]: Successfully built project")
 		}

@@ -15,5 +15,17 @@ func main() {
 				SourcePath: "cmd/graft/main.go",
 			})
 		})
+		
+		startConfig := graft.HRConfig{
+			Action:       "start",
+			ExcludeDir:   []string{".git", ".idea", "documentation", "images", "bin"},
+			IncludeExten: []string{".go", ".mod"},
+		}
+		t.DefineHotReloadTask(startConfig, func(p *graft.TaskConfig) {
+			p.Build(graft.BuildOptions{
+				OutputPath: "bin/graft",
+				SourcePath: "cmd/graft/main.go",
+			})
+		})
 	})
 }

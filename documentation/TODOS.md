@@ -1,27 +1,27 @@
-## Planned stuff
+## Planned stuff 👨‍🎓
 
 - [ ] Features
     - [x] Basic commands:
         - [x] `graft init`
         - [x] `graft help`
+    - [x] Simple Hot reloading option
+        - [x] Default config
+        - [x] `Include/Exclude` extensions
+        - [x] `Include/Exclude` directories
     - [ ] Abstractions
         - [x] Run formater `p.Format()`
         - [ ] Test command `p.Test()`
-        - [ ] .env variable setter `p.Env()`
         - [ ] go mod download/tidy `p.Module()`
         - [ ] go update dependencies `p.ManageDependencies()`
         - [ ] Docker command `p.DockerCompose()`
         - [ ] Run linters `p.RunLinter()`
-    - [ ] Hot reloading option
-        - [ ] Default config
-        - [ ] `WatchDir`
-        - [ ] `Ignore`
-        - [ ] `Command`
+        - [ ] .env variable setter `p.Env()`
     - [ ] Log how much time it took to run each script
-    - [ ] Benchmark script/functions
+    - [ ] Benchmark script/functions `graft.BenchStart(name)` and `graft.BenchEnd(name)`
     - [ ] Deploy functions
     - [ ] Functioning `go get graft`
     - [ ] Print graft version on `graft help`
+
 - [ ] Extras
     - [ ] Fix go report
     - [ ] Add git hooks
@@ -35,6 +35,6 @@
     - [ ] Documentation
         - [x] Basic `README.md` examples
         - [ ] `pkg.go` example functions for all of `/pkg`
-        - [ ] Website examples
         - [ ] Make a few videos showcasing
         - [ ] Spread the word 🐣
+        - [ ] Website examples

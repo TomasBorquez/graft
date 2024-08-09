@@ -25,7 +25,7 @@ func main() {
     })
 
 		var startConfig = graft.HRConfig{
-			Action: "start"
+			Action: "start",
 		}
     t.DefineHotReloadTask(startConfig, func(p *graft.TaskConfig) {
       p.Run("go", "run", "main.go")

@@ -3,7 +3,6 @@ package internal
 import (
 	"fmt"
 	"github.com/TomasBorquez/logger"
-	"log"
 	"os"
 	"os/exec"
 )
@@ -13,15 +12,15 @@ func Cmd(command string, args ...string) {
 		logger.Error("[Graft]: No args provided on `Run(command, args)`")
 		return
 	}
-	
+
 	PrintCommand(command, args...)
-	
+
 	cmd := exec.Command(command, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
 	if err != nil {
-		log.Fatal(err)
+		logger.Error("%v", err)
 	}
 }
 

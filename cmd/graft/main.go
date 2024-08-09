@@ -14,7 +14,7 @@ func main() {
 	}
 
 	action := os.Args[1]
-
+	
 	switch action {
 	case "help":
 		scripts.PrintHelp()
