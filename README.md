@@ -1,5 +1,5 @@
 <div align="center">
-	<img alt="Graft logo" src="/images/logo.svg" height="300" /><br />
+	<img alt="Graft logo" src="/images/logo.svg" height="400" /><br />
     <a href="https://pkg.go.dev/github.com/TomasBorquez/graft">
       <img src="https://img.shields.io/badge/%F0%9F%93%9A%20godoc-pkg-00ACD7.svg?color=00ACD7&style=flat-square">
     </a>
