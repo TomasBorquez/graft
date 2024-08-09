@@ -17,13 +17,24 @@
         - [ ] `WatchDir`
         - [ ] `Ignore`
         - [ ] `Command`
+    - [ ] Log how much time it took to run each script
     - [ ] Benchmark script/functions
     - [ ] Deploy functions
     - [ ] Functioning `go get graft`
-- [ ] Testing
-    - [ ] Unit tests for each `/pkg` function
-    - [ ] Integration tests for `/internal` functions
-- [ ] Documentation
-    - [x] Basic `README.md` examples
-    - [ ] `pkg.go` example functions for all of `/pkg`
-    - [ ] Website examples
+    - [ ] Print graft version on `graft help`
+- [ ] Extras
+    - [ ] Fix go report
+    - [ ] Add git hooks
+        - [ ] gofmt on commit
+        - [ ] golint on push
+    - [ ] Testing
+        - [ ] Unit tests for each `/pkg` function
+        - [ ] Integration tests for `/internal` functions
+        - [ ] Add CI/CD
+        - [ ] Add goreportcard on readme about passing build
+    - [ ] Documentation
+        - [x] Basic `README.md` examples
+        - [ ] `pkg.go` example functions for all of `/pkg`
+        - [ ] Website examples
+        - [ ] Make a few videos showcasing
+        - [ ] Spread the word 🐣
