@@ -1,4 +1,4 @@
-### Planned stuff
+## Planned stuff
 
 - [ ] Features
     - [x] Basic commands:
