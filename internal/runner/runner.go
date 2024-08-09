@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"runtime"
+	"strings"
 )
 
 func FindGraftFile() (string, error) {
@@ -23,7 +24,7 @@ func FindGraftFile() (string, error) {
 
 		parentDir := filepath.Dir(currentDir)
 		if parentDir == currentDir {
-			return "", fmt.Errorf("graft.go not found in project hierarchy")
+			return "", fmt.Errorf(`"graft.go" not found in project hierarchy`)
 		}
 		currentDir = parentDir
 	}
@@ -48,8 +49,9 @@ func CompileAndExecuteGraft(graftFile string, action string) error {
 	executablePath := filepath.Join(binDir, executableName)
 
 	cmd := exec.Command("go", "build", "-tags", "graft", "-o", executablePath, graftFile)
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("failed to compile graft: %w", err)
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("failed to compile graft: %w\nOutput: %s", err, strings.TrimSpace(string(output)))
 	}
 
 	logger.Success(`[Graft]: Successfully compiled "graft.go", running it...`)
@@ -58,6 +60,10 @@ func CompileAndExecuteGraft(graftFile string, action string) error {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Dir = filepath.Dir(graftFile)
+	err = cmd.Run()
+	if err != nil {
+		return fmt.Errorf("failed to execute graft: %w", err)
+	}
 
-	return cmd.Run()
+	return nil
 }

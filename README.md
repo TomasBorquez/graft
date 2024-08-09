@@ -59,10 +59,20 @@ import (
 )
 
 func main() {
-  graft.Config("build", func(p *graft.Project) {
-    p.Build(graft.BuildOptions{
-        OutputPath: "bin/myapp",
-        SourcePath: "cmd/myapp/main.go",
+  graft.ExecuteTasks(func(t *graft.TaskExecutor) {
+    t.DefineTask("build", func(p *graft.TaskConfig) {
+      p.Build(graft.BuildOptions{
+        OutputPath: "bin/graft",
+        SourcePath: "cmd/graft/main.go",
+      })
+    })
+
+    t.DefineHotReloadTask(graft.HotReloadingConfig{}, func(p *graft.TaskConfig) {
+      p.Run("go", "run", "main.go")
+    })
+
+    t.DefineTask("format", func(p *graft.TaskConfig) {
+      p.FormatAll()
     })
   })
 }

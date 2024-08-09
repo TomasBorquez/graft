@@ -1,9 +1,9 @@
 ### Planned stuff
 
 - [ ] Features
-    - [ ] Basic commands:
+    - [x] Basic commands:
         - [x] `graft init`
-        - [ ] `graft help`
+        - [x] `graft help`
     - [ ] Abstractions
         - [x] Run formater `p.Format()`
         - [ ] Test command `p.Test()`
@@ -11,12 +11,12 @@
         - [ ] go mod download/tidy `p.Module()`
         - [ ] go update dependencies `p.ManageDependencies()`
         - [ ] Docker command `p.DockerCompose()`
+        - [ ] Run linters `p.RunLinter()`
     - [ ] Hot reloading option
         - [ ] Default config
         - [ ] `WatchDir`
         - [ ] `Ignore`
         - [ ] `Command`
-    - [ ] Run linters abstraction
     - [ ] Benchmark script/functions
     - [ ] Deploy functions
     - [ ] Functioning `go get graft`
@@ -24,6 +24,6 @@
     - [ ] Unit tests for each `/pkg` function
     - [ ] Integration tests for `/internal` functions
 - [ ] Documentation
+    - [x] Basic `README.md` examples
     - [ ] `pkg.go` example functions for all of `/pkg`
-    - [ ] Basic `README.md` examples
     - [ ] Website examples
