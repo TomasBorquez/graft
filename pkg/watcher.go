@@ -30,7 +30,7 @@ func AddWatcher(opts *HRConfig, cb TaskCb) {
 				}
 				
 				if event.Has(fsnotify.Write) {
-					logger.Info(`[Graft]: Modified file "%s", running script again...`, event.Name)
+					logger.Info(`Modified file "%s", running script again...`, event.Name)
 					cb(&TaskConfig{})
 				}
 			case err, ok := <-watcher.Errors:

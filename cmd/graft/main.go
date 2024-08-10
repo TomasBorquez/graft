@@ -38,7 +38,7 @@ func executeConfig(action string) {
 		return
 	}
 
-	logger.Custom(`[Graft]: Found "graft.go", compiling and executing...`)
+	logger.Info(`[Graft]: Found "graft.go", compiling...`)
 	err = runner.CompileAndExecuteGraft(file, action)
 
 	if err != nil {

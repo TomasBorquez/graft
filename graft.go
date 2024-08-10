@@ -22,10 +22,7 @@ func main() {
 			IncludeExten: []string{".go", ".mod"},
 		}
 		t.DefineHotReloadTask(startConfig, func(p *graft.TaskConfig) {
-			p.Build(graft.BuildOptions{
-				OutputPath: "bin/graft",
-				SourcePath: "cmd/graft/main.go",
-			})
+			p.Run("graft", "build")
 		})
 	})
 }

@@ -1,5 +1,5 @@
-github.com/TomasBorquez/logger v0.2.0 h1:csTB0S86Rk3erbTh6bJrNlJ2cymjRt81UdFCv0vIwes=
-github.com/TomasBorquez/logger v0.2.0/go.mod h1:GygdvJeKi98u5NxyVzFwtTP28WJ/CHTRoxNHtcK8a4s=
+github.com/TomasBorquez/logger v0.3.3 h1:em0VrM2OCmZezW5nPsbapjZtuHwqEMew+4b5qsMggsU=
+github.com/TomasBorquez/logger v0.3.3/go.mod h1:GygdvJeKi98u5NxyVzFwtTP28WJ/CHTRoxNHtcK8a4s=
 github.com/fsnotify/fsnotify v1.7.0 h1:8JEhPFa5W2WU7YfeZzPNqzMP6Lwt7L2715Ggo0nosvA=
 github.com/fsnotify/fsnotify v1.7.0/go.mod h1:40Bi/Hjc2AVfZrqy+aj+yEI+/bRxZnMJyTJwOpGvigM=
 golang.org/x/sys v0.24.0 h1:Twjiwq9dn6R1fQcyiK+wQyHWfaz/BJB+YIpzU/Cv3Xg=

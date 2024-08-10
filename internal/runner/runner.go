@@ -54,7 +54,7 @@ func CompileAndExecuteGraft(graftFile string, action string) error {
 		return fmt.Errorf("failed to compile graft: %w\nOutput: %s", err, strings.TrimSpace(string(output)))
 	}
 
-	logger.Success(`[Graft]: Successfully compiled "graft.go", running it...`)
+	logger.Info(`[Graft]: Executing it...`)
 
 	cmd = exec.Command(executablePath, action)
 	cmd.Stdout = os.Stdout
